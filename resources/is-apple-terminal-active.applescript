@@ -4,7 +4,7 @@ on run ttyName
 	tell application id "com.apple.terminal"
 		if frontmost is not true then return false
 		
-		tell first item of (first tab of windows whose tty is ttyName)
+		tell first item of (first tab of (windows whose name is not "") whose tty is ttyName)
 			return selected
 		end tell
 		
